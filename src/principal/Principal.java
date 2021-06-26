@@ -1,17 +1,16 @@
 
 package principal;
+import javax.swing.JFrame;
 import persona.*;
-import ventanas.VentanaBienvenida;
+import ventanas.*;
 
 
 public class Principal {
     
     public static void main(String[] args) {
-       VentanaBienvenida ventana = new VentanaBienvenida();
-       ventana.setTitle("Serpientes & Escaleras");
-       ventana.setDefaultCloseOperation(1);
-       ventana.setVisible(true);
-       
+        VBienvenida bienvenida = new VBienvenida();
+        
+        
     }
     
 }
