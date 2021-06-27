@@ -7,18 +7,22 @@ public class Persona {
     private int id;
     private String nombre;
     private String apellido;
-    //private int edad;
     private int partidasJugadas=0;
     private int partidasGanadas=0;
     private int partidasPerdidas=0;
+    private static int aumentarId;
 
     public Persona(int id, String nombre, String apellido) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        //this.edad = edad;
 
     }
+    
+    static {
+        aumentarId=0;
+    
+}
 
     @Override
     public String toString() {

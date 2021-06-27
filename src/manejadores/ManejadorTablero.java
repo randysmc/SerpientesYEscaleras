@@ -21,8 +21,8 @@ public class ManejadorTablero {
     private Casilla [][] distribucionCasillas;
     private int cantX, cantY;
 
-    public ManejadorTablero(JButton casillaBoton, Casilla[][] distribucionCasillas, int cantX, int cantY) {
-        this.casillaBoton = casillaBoton;
+    public ManejadorTablero(JPanel panelTablero, Casilla[][] distribucionCasillas, int cantX, int cantY) {
+        this.panelTablero = panelTablero;
         this.distribucionCasillas = distribucionCasillas;
         this.cantX = cantX;
         this.cantY = cantY;

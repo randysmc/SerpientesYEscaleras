@@ -32,22 +32,37 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        bienvenidaTextA = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         ingresarBoton = new javax.swing.JButton();
 
         setResizable(false);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Bienvenida", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 51, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 51, 51), new java.awt.Color(0, 51, 51), new java.awt.Color(0, 51, 51), new java.awt.Color(0, 51, 51)), "Inicio", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 51, 51))); // NOI18N
+
+        bienvenidaTextA.setEditable(false);
+        bienvenidaTextA.setBackground(new java.awt.Color(204, 204, 204));
+        bienvenidaTextA.setColumns(20);
+        bienvenidaTextA.setForeground(new java.awt.Color(0, 51, 51));
+        bienvenidaTextA.setRows(5);
+        bienvenidaTextA.setText("Bienvenido al juego de serpientes y escaleras del curso de IPC1 Junio 2021\n-Se puede jugar desde 1 a 4 Jugadores\n-El tablero es de X * X, tendra casillas trampa y casillas bonus\n-Tira los dados y reta a tu suerte para ser el mejor y ganar\n-Diviertete");
+        jScrollPane1.setViewportView(bienvenidaTextA);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jLabel1.setBackground(new java.awt.Color(102, 0, 0));
@@ -55,9 +70,15 @@ public class VentanaInicio extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/juego serpientes y escaleras financiero.png"))); // NOI18N
 
         ingresarBoton.setBackground(new java.awt.Color(255, 255, 255));
-        ingresarBoton.setForeground(new java.awt.Color(0, 0, 102));
+        ingresarBoton.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ingresarBoton.setForeground(new java.awt.Color(0, 51, 51));
         ingresarBoton.setText("Ingresar");
         ingresarBoton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ingresarBoton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresarBotonMouseClicked(evt);
+            }
+        });
         ingresarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingresarBotonActionPerformed(evt);
@@ -89,20 +110,26 @@ public class VentanaInicio extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(ingresarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void ingresarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarBotonActionPerformed
-        VentanaPrincipal ventanaPrinc= new VentanaPrincipal();
+        
     }//GEN-LAST:event_ingresarBotonActionPerformed
+
+    private void ingresarBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarBotonMouseClicked
+        VentanaPrincipal ventanaPrinc = new VentanaPrincipal();
+    }//GEN-LAST:event_ingresarBotonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea bienvenidaTextA;
     private javax.swing.JButton ingresarBoton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
