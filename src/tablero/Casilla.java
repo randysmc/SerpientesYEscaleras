@@ -9,12 +9,12 @@ import enums.TipoCasilla;
 import interfaz.ComportamientoCasilla;
 
 
-public class Casillas implements ComportamientoCasilla{
+public class Casilla implements ComportamientoCasilla{
     
     private TipoCasilla tipoCasilla;
     private BotonCasilla casilla;
 
-    public Casillas(TipoCasilla tipoCasilla, BotonCasilla casilla) {
+    public Casilla(TipoCasilla tipoCasilla, BotonCasilla casilla) {
         this.tipoCasilla = tipoCasilla;
         this.casilla = casilla;
     }

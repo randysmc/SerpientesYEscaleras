@@ -1,18 +1,17 @@
 
 package tablero;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
 import javax.accessibility.AccessibleContext;
 import javax.swing.Action;
 import javax.swing.ButtonModel;
-import javax.swing.Icon;
-import javax.swing.JButton;
+import javax.swing.*;
+
+import interfaz.ComportamientoCasilla;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.EventListenerList;
 import javax.swing.plaf.ComponentUI;
-import interfaz.ComportamientoCasilla;
 
 
 public class BotonCasilla extends JButton {

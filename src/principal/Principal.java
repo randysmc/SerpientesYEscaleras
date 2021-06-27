@@ -8,7 +8,7 @@ import ventanas.*;
 public class Principal {
     
     public static void main(String[] args) {
-        VBienvenida bienvenida = new VBienvenida();
+        VentanaInicio ventanaInit =new VentanaInicio();
         
         
     }

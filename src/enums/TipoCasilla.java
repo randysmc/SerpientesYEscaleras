@@ -10,5 +10,5 @@ package enums;
  * @author randysmc
  */
 public enum TipoCasilla {
-    SERPIENTE, ESCALERA, DOBLE_TURNO, PIERDE_TURNO
+    NORMAL, SERPIENTE, ESCALERA, DOBLE_TURNO, PIERDE_TURNO
 }
