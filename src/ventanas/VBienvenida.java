@@ -6,6 +6,7 @@
 package ventanas;
 
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 
 public class VBienvenida extends javax.swing.JFrame {
@@ -14,7 +15,8 @@ public class VBienvenida extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Serpientes y Escaleras");
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setVisible(true);
     }
@@ -28,7 +30,7 @@ public class VBienvenida extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanelBotones = new javax.swing.JPanel();
-        jButtonEntrada = new javax.swing.JButton();
+        botonIngresoV1 = new javax.swing.JButton();
         jButtonSalida = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -57,7 +59,12 @@ public class VBienvenida extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButtonEntrada.setText("Entrar");
+        botonIngresoV1.setText("Entrar");
+        botonIngresoV1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIngresoV1ActionPerformed(evt);
+            }
+        });
 
         jButtonSalida.setText("Salir");
 
@@ -69,15 +76,15 @@ public class VBienvenida extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
+                    .addComponent(botonIngresoV1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelBotonesLayout.setVerticalGroup(
             jPanelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBotonesLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(jButtonEntrada)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                .addComponent(botonIngresoV1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonSalida)
                 .addGap(75, 75, 75))
         );
@@ -157,9 +164,15 @@ public class VBienvenida extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonIngresoV1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresoV1ActionPerformed
+        VentanaPrincipal principal = new VentanaPrincipal();
+        this.setVisible(false);
+        principal.setVisible(true);
+    }//GEN-LAST:event_botonIngresoV1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonEntrada;
+    private javax.swing.JButton botonIngresoV1;
     private javax.swing.JButton jButtonSalida;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
