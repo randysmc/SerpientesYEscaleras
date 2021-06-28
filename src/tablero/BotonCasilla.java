@@ -1,6 +1,7 @@
 
 package tablero;
 
+import enums.TipoCasilla;
 import java.awt.event.*;
 import javax.accessibility.AccessibleContext;
 import javax.swing.Action;
@@ -14,9 +15,11 @@ import javax.swing.event.EventListenerList;
 import javax.swing.plaf.ComponentUI;
 
 
-public class BotonCasilla extends JButton {
+public class BotonCasilla extends JButton{
     private int numFilas;
     private int numColumnas;
+    private TipoCasilla tipoCasilla;
+    
 
     public BotonCasilla(int numFilas, int numColumnas) {
         this.numFilas = numFilas;
@@ -28,6 +31,16 @@ public class BotonCasilla extends JButton {
         this.numFilas = numFilas;
         this.numColumnas = numColumnas;
     }
+
+    public TipoCasilla getTipoCasilla() {
+        return tipoCasilla;
+    }
+
+    public void setTipoCasilla(TipoCasilla tipoCasilla) {
+        this.tipoCasilla = tipoCasilla;
+    }
+    
+    
 
 
 

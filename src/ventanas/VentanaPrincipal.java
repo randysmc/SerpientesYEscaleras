@@ -1,6 +1,7 @@
 
 package ventanas;
 
+import enums.TipoCasilla;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Window;
@@ -16,26 +17,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private Tablero tablero;
 
   
-    public VentanaPrincipal(int cantX, int cantY) {
+    public VentanaPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        //iniciarTablero(10,4);
+        
+        
+        
+    }
+    
+    public void iniciarTablero(int cantX, int cantY){
         this.tableroPanel.setLayout(new GridLayout(cantX, cantY));
         asignarDatos(cantX, cantY);
-        
-        
         
     }
     
     public void asignarDatos(int cantX, int cantY){
         this.tablero = new Tablero(cantX, cantY);
         manejadorTablero = new ManejadorTablero(tableroPanel, tablero.getCasilla(), cantX, cantY);
+
     }
     
- 
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -46,6 +51,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         JugarBoton = new javax.swing.JButton();
         reportesBoton = new javax.swing.JButton();
         tableroPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,6 +138,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGap(0, 344, Short.MAX_VALUE)
         );
 
+        jPanel1.setBackground(new java.awt.Color(0, 51, 51));
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 164, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 363, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -141,7 +161,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(tableroPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(opcionesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -150,7 +171,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(opcionesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tableroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -166,7 +189,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mostrarJugadorBotonActionPerformed
 
     private void JugarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarBotonActionPerformed
-        // TODO add your handling code here:
+        iniciarTablero(5,5 );
+        this.setVisible(true);
     }//GEN-LAST:event_JugarBotonActionPerformed
 
     private void reportesBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportesBotonActionPerformed
@@ -182,6 +206,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JugarBoton;
     private javax.swing.JButton agregarJugadorBoton;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton mostrarJugadorBoton;
     private javax.swing.JPanel opcionesPanel;
     private javax.swing.JButton reportesBoton;

@@ -121,7 +121,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_ingresarBotonActionPerformed
 
     private void ingresarBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarBotonMouseClicked
-        VentanaPrincipal ventanaPrinc = new VentanaPrincipal(5,5);
+        VentanaPrincipal ventanaPrinc = new VentanaPrincipal();
     }//GEN-LAST:event_ingresarBotonMouseClicked
 
 

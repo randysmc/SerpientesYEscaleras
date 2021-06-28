@@ -11,6 +11,7 @@ package tablero;
  */
 public class Tablero {
     private Casilla [][] casilla;
+    
 
     public Tablero(int cantX, int cantY) {
         this.casilla = CreadorCasilla.creadorTablero(cantX, cantY);
