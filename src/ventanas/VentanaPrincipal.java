@@ -1,6 +1,7 @@
 
 package ventanas;
 
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Window;
 import java.util.Vector;
@@ -15,20 +16,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private Tablero tablero;
 
   
-    public VentanaPrincipal() {
+    public VentanaPrincipal(int cantX, int cantY) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        this.tableroPanel.setLayout(new GridLayout(cantX, cantY));
+        asignarDatos(cantX, cantY);
+        
+        
         
     }
     
-    public void asignarDatos(){
-        this.tablero = new Tablero(5, 5);
-        manejadorTablero = new ManejadorTablero(tableroPanel,tablero.getCasilla(), 5,5);
+    public void asignarDatos(int cantX, int cantY){
+        this.tablero = new Tablero(cantX, cantY);
+        manejadorTablero = new ManejadorTablero(tableroPanel, tablero.getCasilla(), cantX, cantY);
     }
-
+    
+ 
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -114,13 +120,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
 
         tableroPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 51, 51), new java.awt.Color(0, 51, 51), new java.awt.Color(0, 51, 51), new java.awt.Color(0, 51, 51)), "Tablero", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14))); // NOI18N
-        this.tableroPanel.setLayout(new GridLayout(5, 5));
 
         javax.swing.GroupLayout tableroPanelLayout = new javax.swing.GroupLayout(tableroPanel);
         tableroPanel.setLayout(tableroPanelLayout);
         tableroPanelLayout.setHorizontalGroup(
             tableroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 410, Short.MAX_VALUE)
         );
         tableroPanelLayout.setVerticalGroup(
             tableroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
