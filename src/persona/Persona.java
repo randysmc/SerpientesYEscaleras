@@ -6,7 +6,7 @@ import tablero.Ficha;
 
 public class Persona {
     
-    private int id;
+    private int id=1;
     private String nombre;
     private String apellido;
     private int partidasJugadas=0;
@@ -15,10 +15,10 @@ public class Persona {
     private static int aumentarId;
     private Ficha ficha;
 
-    public Persona(int id, String nombre, String apellido) {
-        this.id = id;
+    public Persona(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
+        id++;
 
     }
     
