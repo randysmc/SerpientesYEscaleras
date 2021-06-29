@@ -30,6 +30,7 @@ public class Cuadro extends JButton {
     int posX, posY;
     
     private EstadoCasilla estadoCasilla;
+    private Ficha ficha;
 
 
     VentanaJuego ventanaJuego;
@@ -47,6 +48,17 @@ public class Cuadro extends JButton {
     public String toString() {
         return "" + estadoCasilla ;
     }
+
+    public Ficha getFicha() {
+        return ficha;
+    }
+
+    public void setFicha(Ficha ficha) {
+        this.ficha = ficha;
+    }
+    
+    
+    
 
     public EstadoCasilla getEstadoCasilla() {
         return estadoCasilla;
