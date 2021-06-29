@@ -17,13 +17,13 @@ import tablero.Cuadro;
 import ventanas.VentanaJuego;
 
 
-public class Manejador {
+public class ManejadorTablero {
     
     private VentanaJuego ventanaJuego;
     private Cuadro[][] tablero;
     private JPanel tableroPanel;
 
-    public Manejador(VentanaJuego ventanaJuego, Cuadro[][] tablero, JPanel tableroPanel) {
+    public ManejadorTablero(VentanaJuego ventanaJuego, Cuadro[][] tablero, JPanel tableroPanel) {
         this.ventanaJuego = ventanaJuego;
         this.tablero = tablero;
         this.tableroPanel = tableroPanel;

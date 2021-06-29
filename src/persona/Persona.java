@@ -19,8 +19,6 @@ public class Persona {
         this.id =Persona.aumentarId();
         this.nombre = nombre;
         this.apellido = apellido;
-        
-
     }
     
     static {

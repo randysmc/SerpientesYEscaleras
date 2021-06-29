@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
-import manejadores.Manejador;
+import manejadores.ManejadorTablero;
 import tablero.Cuadro;
 
 ;
@@ -19,11 +19,11 @@ public class VentanaJuego extends javax.swing.JFrame {
 
     private Vector listaJugadores = new Vector();
     Cuadro[][] tablero;
-    Manejador manejador;
+    ManejadorTablero manejador;
 
     public VentanaJuego() {
         initComponents();
-        manejador = new Manejador(this, tablero, tableroPanel);
+        manejador = new ManejadorTablero(this, tablero, tableroPanel);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setResizable(false);
