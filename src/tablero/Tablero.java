@@ -9,13 +9,23 @@ package tablero;
  *
  * @author randysmc
  */
-public class Tablero {
+    public class Tablero {
     private Casilla [][] casilla;
+    private Ficha ficha;
     
 
-    public Tablero(int cantX, int cantY) {
-        this.casilla = CreadorCasilla.creadorTablero(cantX, cantY);
+    public Tablero(int cantX, int cantY, int cantJugadores) {
+        this.casilla = CreadorCasilla.creadorTablero(cantX, cantY, cantJugadores);
     }
+
+    public Ficha getFicha() {
+        return ficha;
+    }
+
+    public void setFicha(Ficha ficha) {
+        this.ficha = ficha;
+    }
+    
 
     public Casilla[][] getCasilla() {
         return casilla;

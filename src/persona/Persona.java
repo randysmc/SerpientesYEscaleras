@@ -16,9 +16,10 @@ public class Persona {
     private Ficha ficha;
 
     public Persona(String nombre, String apellido) {
+        this.id =Persona.aumentarId();
         this.nombre = nombre;
         this.apellido = apellido;
-        id++;
+        
 
     }
     
@@ -26,6 +27,10 @@ public class Persona {
         aumentarId=0;
     
 }
+    
+    private static int aumentarId(){
+        return ++aumentarId;
+    }
 
     @Override
     public String toString() {

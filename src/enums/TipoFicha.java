@@ -9,6 +9,7 @@ package enums;
  *
  * @author randysmc
  */
-public enum TipoCasilla {
-    INICIO, RETROCEDE, TIRAR_DADOS, AVANZA, PIERDE_TURNO, BAJADA, SUBIDA, FIN, NORMAL
+public enum TipoFicha {
+    JUGADOR1, JUGADOR2, JUGADOR3, JUGADOR4
+    
 }

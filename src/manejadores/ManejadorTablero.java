@@ -6,6 +6,7 @@
 package manejadores;
 
 import enums.TipoCasilla;
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import tablero.BotonCasilla;
@@ -16,10 +17,10 @@ import tablero.*;
  * @author randysmc
  */
 public class ManejadorTablero {
-    
+
     private JPanel panelTablero;
-    private JButton casillaBoton;
-    private Casilla [][] distribucionCasillas;
+    //private JButton casillaBoton;
+    private Casilla[][] distribucionCasillas;
     private int cantX, cantY;
 
     public ManejadorTablero(JPanel panelTablero, Casilla[][] distribucionCasillas, int cantX, int cantY) {
@@ -29,21 +30,19 @@ public class ManejadorTablero {
         this.cantY = cantY;
         dibujarTablero();
     }
-    
-    
-    public void dibujarTablero(){
-        for (int i = 0; i <cantX; i++) {
-            for (int j = 0; j <cantY; j++) {
+
+    public void dibujarTablero() {
+        for (int i = 0; i < cantX; i++) {
+            for (int j = 0; j < cantY; j++) {
                 Casilla casilla = this.distribucionCasillas[i][j];
-                
-                //this.distribucionCasillas[3][3].setTipoCasilla(TipoCasilla.ESCALERA);
+                this.distribucionCasillas[0][0].setTipoCasilla(TipoCasilla.INICIO);
                 this.panelTablero.add(casilla.getCasilla());
                 
             }
-            
+
         }
     }
 
-    
-    
+
+
 }

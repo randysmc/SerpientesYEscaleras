@@ -2,6 +2,7 @@
 package ventanas;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import persona.Persona;
 
@@ -35,6 +36,12 @@ public class IngresarJugador extends javax.swing.JFrame {
 
         apellidoLabel.setText("Apellido");
 
+        nombreTextF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreTextFActionPerformed(evt);
+            }
+        });
+
         agregarDatosBoton.setText("Agregar");
         agregarDatosBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,9 +61,8 @@ public class IngresarJugador extends javax.swing.JFrame {
                 .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(agregarDatosBoton, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(nombreTextF, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                        .addComponent(apellidoTextF)))
+                    .addComponent(nombreTextF, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                    .addComponent(apellidoTextF))
                 .addContainerGap(135, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -80,11 +86,19 @@ public class IngresarJugador extends javax.swing.JFrame {
 
     private void agregarDatosBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarDatosBotonActionPerformed
 
-        Persona persona = new Persona( nombreTextF.getText(), apellidoTextF.getText());
+
+        Persona persona = new Persona(nombreTextF.getText(), apellidoTextF.getText());
+        
         listaPersonas.add(persona);
         System.out.println(listaPersonas + "\n");
+        //nombreTextF.setText("");
+        //apellidoTextF.setText("");
         
     }//GEN-LAST:event_agregarDatosBotonActionPerformed
+
+    private void nombreTextFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreTextFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreTextFActionPerformed
 
 
 
