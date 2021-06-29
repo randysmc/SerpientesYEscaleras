@@ -35,23 +35,27 @@ public class ManejadorTablero {
     }
 
     public void Jugar(int x, int y) {
-        pintarTablero(x,y);
+        iniciarTablero(x, y);
+        iniciarFicha(tablero, 0, 0,4);  
+        this.tablero[0][0].setEstadoCasilla(EstadoCasilla.INICIO);
+        this.tablero[0][0].setBackground(Color.red);
+        this.tablero[0][0].setText(""+this.tablero[0][0].getFicha().getTipoFicha());
         
-
-        tablero[0][0].setFicha(new Ficha('X', TipoFicha.JUGADOR1));
+        pintarTablero(x,y);
         tableroPanel.repaint();
 
     }
+    
+    public Cuadro ModificarTablero(int x, int y){
+       
+        return tablero[x][y];
+    }
 
-    public void pintarTablero(int x, int y) {
-
-
+    public void iniciarTablero(int x, int y) {
         this.tablero = new Cuadro[x][y];
         //Greed Layout para botones
-        ventanaJuego.getTableroPanel().setLayout(new GridLayout(x, y));
+        //ventanaJuego.getTableroPanel().setLayout(new GridLayout(x, y));
         //panelTablero.setLayout(new GridLayout(x, y));
-        String nombreC="";
-        String nombreF="";
 
         for (int i = 0; i < x; i++) {
 
@@ -60,10 +64,10 @@ public class ManejadorTablero {
                 if (i == 0 && j == 0) {
                     //this.tablero[i][j].setFicha(new Ficha('X', TipoFicha.JUGADOR1));
                     this.tablero[i][j] = new Cuadro(i, j, ventanaJuego.getTableroPanel(), this.ventanaJuego, EstadoCasilla.INICIO, "");
-                    this.tablero[i][j].setBackground(Color.red);
+                    //this.tablero[i][j].setBackground(Color.red);
                 } else if (i == (x - 1) && j == (y - 1)) {
                     this.tablero[i][j] = new Cuadro(i, j, ventanaJuego.getTableroPanel(), this.ventanaJuego, EstadoCasilla.FIN, "");
-                    this.tablero[i][j].setBackground(Color.BLACK);
+                    //this.tablero[i][j].setBackground(Color.BLACK);
                 } else {
                     this.tablero[i][j] = new Cuadro(i, j, ventanaJuego.getTableroPanel(), this.ventanaJuego, EstadoCasilla.NORMAL, "" );
 
@@ -74,8 +78,32 @@ public class ManejadorTablero {
         }
 
 
+        //this.ventanaJuego.setVisible(true);
+    }
+    
+    /**
+     *Este metodo me ayuda a pintar el tablero, luego de las modificaciones que pueda tener
+     */
+    
+        public void pintarTablero(int x, int y) {
+        this.tablero = new Cuadro[x][y];
+        //Greed Layout para botones
+        ventanaJuego.getTableroPanel().setLayout(new GridLayout(x, y));
+        //panelTablero.setLayout(new GridLayout(x, y));
+        for (int i = 0; i < x; i++) {
+
+            for (int j = 0; j < y; j++) {
+
+            }
+        }
+
         this.ventanaJuego.setVisible(true);
     }
+        
+        /**
+         Metodo para borrar y limpiar el tablero, hace todas las casillas null
+         
+         */
 
     public void borrarTablero(int x, int y) {
 
@@ -88,34 +116,70 @@ public class ManejadorTablero {
         ventanaJuego.getTableroPanel().repaint();
     }
 
-    public void iniciarTablero(Cuadro[][] tablero, int x, int y){
-        
+    /**
+     Metodo para iniciar una ficha en el tablero, depende de cuantos jugadores existan
+     es el numero de fichas que se crean
+     */
+    public void iniciarFicha(Cuadro[][] tablero, int x, int y, int cantJ){
+        switch(cantJ){
+            case 1:
+                this.tablero[x][y].setFicha(new Ficha('X', TipoFicha.JUGADOR1));
+                break;
+            case 2:
+                this.tablero[x][y].setFicha(new Ficha('X', TipoFicha.JUGADOR1));
+                this.tablero[x][y].setFicha(new Ficha('Y', TipoFicha.JUGADOR2));
+                break;
+            case 3:
+                this.tablero[x][y].setFicha(new Ficha('X', TipoFicha.JUGADOR1));
+                this.tablero[x][y].setFicha(new Ficha('Y', TipoFicha.JUGADOR2));
+                this.tablero[x][y].setFicha(new Ficha('Z', TipoFicha.JUGADOR3));
+                break;
+            case 4:
+                this.tablero[x][y].setFicha(new Ficha('X', TipoFicha.JUGADOR1));
+                this.tablero[x][y].setFicha(new Ficha('Y', TipoFicha.JUGADOR2));
+                this.tablero[x][y].setFicha(new Ficha('Z', TipoFicha.JUGADOR3));
+                this.tablero[x][y].setFicha(new Ficha('W', TipoFicha.JUGADOR4));
+                break;
+            default:
+                
+        } 
     }
-    
-    public void iniciarFicha(Cuadro[][] tablero, int x, int y){
-        
-    }
+    /**Metodo para pintar la casilla de retroceso, me ayuda a establecer la casilla 
+     y a pintarla*/
     
     public void casillaRetroceso(Cuadro[][] tablero, int x, int y){
+        this.tablero[x][y].setEstadoCasilla(EstadoCasilla.RETROCEDE);
+        this.tablero[x][y].setBackground(Color.ORANGE);
         
     }
     public void casillaDados(Cuadro[][] tablero, int x, int y){
+        this.tablero[x][y].setEstadoCasilla(EstadoCasilla.TIRAR_DADOS);
+        this.tablero[x][y].setBackground(Color.RED);
         
     }
     
     public void casillaSubida(Cuadro[][] tablero, int x, int y){
+        this.tablero[x][y].setEstadoCasilla(EstadoCasilla.SUBIDA);
+        this.tablero[x][y].setBackground(Color.YELLOW);
         
     }
     
+    
     public void casillaAvanza(Cuadro[][] tablero, int x, int y){
+        this.tablero[x][y].setEstadoCasilla(EstadoCasilla.AVANZA);
+        //this.tablero[x][y].setBackground(Color.ORANGE);
         
     }
     
     public void casillaPierdeTurno(Cuadro [][] tablero, int x, int y){
+        this.tablero[x][y].setEstadoCasilla(EstadoCasilla.PIERDE_TURNO);
+        this.tablero[x][y].setBackground(Color.BLUE);
         
     }
     
     public void casillaBajada(Cuadro[][] tablero, int x, int y){
+        this.tablero[x][y].setEstadoCasilla(EstadoCasilla.BAJADA);
+        this.tablero[x][y].setBackground(Color.GREEN);
         
     }
 
@@ -162,5 +226,47 @@ public class ManejadorTablero {
         return nombreF;
 
     }
+
+    public VentanaJuego getVentanaJuego() {
+        return ventanaJuego;
+    }
+
+    public void setVentanaJuego(VentanaJuego ventanaJuego) {
+        this.ventanaJuego = ventanaJuego;
+    }
+
+    public Cuadro[][] getTablero() {
+        return tablero;
+    }
+
+    public void setTablero(Cuadro[][] tablero) {
+        this.tablero = tablero;
+    }
+
+    public JPanel getTableroPanel() {
+        return tableroPanel;
+    }
+
+    public void setTableroPanel(JPanel tableroPanel) {
+        this.tableroPanel = tableroPanel;
+    }
+
+    public ArrayList<Persona> getListaJugadores() {
+        return listaJugadores;
+    }
+
+    public void setListaJugadores(ArrayList<Persona> listaJugadores) {
+        this.listaJugadores = listaJugadores;
+    }
+
+    public Ficha getFicha() {
+        return ficha;
+    }
+
+    public void setFicha(Ficha ficha) {
+        this.ficha = ficha;
+    }
+    
+    
 
 }

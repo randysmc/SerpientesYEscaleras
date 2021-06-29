@@ -6,7 +6,7 @@
 package controladorArchivos;
 
 import java.util.ArrayList;
-import manejadores.ManejadorTablero;
+import manejadores.*;
 
 /**
  *
@@ -17,13 +17,17 @@ public class GenerarObjetos {
     final String ERROR_DE_CANTIDAD_DE_PARAMETROS = "Cantidad de parametros erronea.";
     final String ERROR_COINCIDENCIA_NULA = "Tipo de dato invalido";
     ArrayList<String> resutadosDeCargaDeDatos = new ArrayList<>();
+    ManejadorTablero manejadorTablero;
+    
+    //manejadorTablero.casillaRetroceso(manejadorTablero.getTablero(), indice, indice);
     
     
     public void generarTablero(String[] parametros, int indice){
         if(parametros.length ==2){
             String erroresGenerarTablero = validarGenerarTablero(parametros);
-            if("".equals(erroesGenerarTablero)){
-                ManejadorTablero manejadorTablero = new ManejadorTablero();
+            if("".equals(erroresGenerarTablero)){
+                
+                manejadorTablero.Jugar(indice, indice);
                     
                 
             }

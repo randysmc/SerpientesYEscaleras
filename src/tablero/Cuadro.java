@@ -43,6 +43,9 @@ public class Cuadro extends JButton {
         this.posY = posY;
         this.ventanaJuego = ventanaJuego;
     }
+    
+    
+    
 
     @Override
     public String toString() {
