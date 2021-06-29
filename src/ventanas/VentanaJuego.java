@@ -20,11 +20,11 @@ public class VentanaJuego extends javax.swing.JFrame {
 
     private Vector listaJugadores = new Vector();
     Cuadro[][] tablero;
-    ManejadorTablero manejador;
+    ManejadorTablero manejadorTablero;
 
     public VentanaJuego() {
         initComponents();
-        manejador = new ManejadorTablero(this, tablero, tableroPanel);
+        manejadorTablero = new ManejadorTablero(this, tablero, tableroPanel);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setResizable(false);
@@ -238,7 +238,7 @@ public class VentanaJuego extends javax.swing.JFrame {
     private void JugarBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JugarBotonMouseClicked
         int x = Integer.parseInt(filasTextF.getText());
         int y = Integer.parseInt(colTextF.getText());
-        manejador.pintarTablero(x,y);
+        manejadorTablero.Jugar(x, y);
 
     }//GEN-LAST:event_JugarBotonMouseClicked
 

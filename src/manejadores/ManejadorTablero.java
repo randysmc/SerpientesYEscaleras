@@ -35,40 +35,44 @@ public class ManejadorTablero {
     }
 
     public void Jugar(int x, int y) {
+        pintarTablero(x,y);
+        
 
-        pintarTablero(x, y, nombre);
         tablero[0][0].setFicha(new Ficha('X', TipoFicha.JUGADOR1));
         tableroPanel.repaint();
 
     }
 
-    public void pintarTablero(int x, int y, String nombreF, String nombreC) {
-        //int x = Integer.parseInt(ventanaJuego.getFilasTextF().getText());
-        //int y = Integer.parseInt(ventanaJuego.getColTextF().getText());
+    public void pintarTablero(int x, int y) {
+
 
         this.tablero = new Cuadro[x][y];
         //Greed Layout para botones
         ventanaJuego.getTableroPanel().setLayout(new GridLayout(x, y));
         //panelTablero.setLayout(new GridLayout(x, y));
+        String nombreC="";
+        String nombreF="";
+
         for (int i = 0; i < x; i++) {
 
             for (int j = 0; j < y; j++) {
 
                 if (i == 0 && j == 0) {
                     //this.tablero[i][j].setFicha(new Ficha('X', TipoFicha.JUGADOR1));
-                    this.tablero[i][j] = new Cuadro(i, j, ventanaJuego.getTableroPanel(), this.ventanaJuego, EstadoCasilla.INICIO, "" + nombreC + "" + nombreF);
+                    this.tablero[i][j] = new Cuadro(i, j, ventanaJuego.getTableroPanel(), this.ventanaJuego, EstadoCasilla.INICIO, "");
                     this.tablero[i][j].setBackground(Color.red);
                 } else if (i == (x - 1) && j == (y - 1)) {
-                    this.tablero[i][j] = new Cuadro(i, j, ventanaJuego.getTableroPanel(), this.ventanaJuego, EstadoCasilla.FIN, "" + nombreC + "" + nombreF);
+                    this.tablero[i][j] = new Cuadro(i, j, ventanaJuego.getTableroPanel(), this.ventanaJuego, EstadoCasilla.FIN, "");
                     this.tablero[i][j].setBackground(Color.BLACK);
                 } else {
-                    this.tablero[i][j] = new Cuadro(i, j, ventanaJuego.getTableroPanel(), this.ventanaJuego, EstadoCasilla.NORMAL, "" + nombreC + "" + nombreF);
+                    this.tablero[i][j] = new Cuadro(i, j, ventanaJuego.getTableroPanel(), this.ventanaJuego, EstadoCasilla.NORMAL, "" );
 
                 }
 
             }
 
         }
+
 
         this.ventanaJuego.setVisible(true);
     }
@@ -84,8 +88,35 @@ public class ManejadorTablero {
         ventanaJuego.getTableroPanel().repaint();
     }
 
-    public void modificarTablero() {
-
+    public void iniciarTablero(Cuadro[][] tablero, int x, int y){
+        
+    }
+    
+    public void iniciarFicha(Cuadro[][] tablero, int x, int y){
+        
+    }
+    
+    public void casillaRetroceso(Cuadro[][] tablero, int x, int y){
+        
+    }
+    public void casillaDados(Cuadro[][] tablero, int x, int y){
+        
+    }
+    
+    public void casillaSubida(Cuadro[][] tablero, int x, int y){
+        
+    }
+    
+    public void casillaAvanza(Cuadro[][] tablero, int x, int y){
+        
+    }
+    
+    public void casillaPierdeTurno(Cuadro [][] tablero, int x, int y){
+        
+    }
+    
+    public void casillaBajada(Cuadro[][] tablero, int x, int y){
+        
     }
 
     public String nombreTableroCuadro(Cuadro[][] tablero, int x, int y) {
@@ -96,13 +127,13 @@ public class ManejadorTablero {
                     nombreC = "Inicio";
                 }
                 if (tablero[i][j].getFicha().getTipoFicha() == TipoFicha.JUGADOR2) {
-                    nombreF = "J2";
+                    nombreC = "J2";
                 }
                 if (tablero[i][j].getFicha().getTipoFicha() == TipoFicha.JUGADOR3) {
-                    nombreF = "J3";
+                    nombreC = "J3";
                 }
                 if (tablero[i][j].getFicha().getTipoFicha() == TipoFicha.JUGADOR4) {
-                    nombreF = "J4";
+                    nombreC = "J4";
                 }
             }
         }
