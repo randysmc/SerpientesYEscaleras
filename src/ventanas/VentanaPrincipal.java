@@ -273,7 +273,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jugarBotonMouseClicked
 
     private void agregarJugadorBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarJugadorBotonMouseClicked
-        manejadorJugadores.agregarJugador();
+        String nombre = ingNomTextF.getText();
+        String apellido = ingApeTexF.getText();
+        manejadorJugadores.agregarJugador(nombre, apellido);
         ingNomTextF.setEnabled(true);
         ingNomTextF.setText("");
         ingNomTextF.requestFocus();

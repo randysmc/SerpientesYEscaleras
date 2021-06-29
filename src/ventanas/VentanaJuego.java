@@ -1,5 +1,6 @@
 package ventanas;
 
+import dado.Dado;
 import enums.EstadoCasilla;
 import java.awt.Color;
 import java.awt.GridBagLayout;
@@ -101,6 +102,8 @@ public class VentanaJuego extends javax.swing.JFrame {
         colTextF = new javax.swing.JTextField();
         borrarBoton = new javax.swing.JButton();
         tableroPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        botonDado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,7 +142,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 .addComponent(JugarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(borrarBoton)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addContainerGap(342, Short.MAX_VALUE))
         );
         opcionesPanelLayout.setVerticalGroup(
             opcionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,6 +158,7 @@ public class VentanaJuego extends javax.swing.JFrame {
 
         tableroPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 51, 51), new java.awt.Color(0, 51, 51), new java.awt.Color(0, 51, 51), new java.awt.Color(0, 51, 51)), "Tablero", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14))); // NOI18N
         tableroPanel.setMaximumSize(new java.awt.Dimension(3276, 2762));
+        tableroPanel.setPreferredSize(new java.awt.Dimension(400, 400));
 
         javax.swing.GroupLayout tableroPanelLayout = new javax.swing.GroupLayout(tableroPanel);
         tableroPanel.setLayout(tableroPanelLayout);
@@ -164,7 +168,39 @@ public class VentanaJuego extends javax.swing.JFrame {
         );
         tableroPanelLayout.setVerticalGroup(
             tableroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
+            .addGap(0, 375, Short.MAX_VALUE)
+        );
+
+        botonDado.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        botonDado.setForeground(new java.awt.Color(255, 51, 51));
+        botonDado.setText("0");
+        botonDado.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "TirarDado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(102, 0, 0))); // NOI18N
+        botonDado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonDadoMouseClicked(evt);
+            }
+        });
+        botonDado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonDadoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(botonDado, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonDado, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -175,7 +211,10 @@ public class VentanaJuego extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(opcionesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tableroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tableroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -183,7 +222,9 @@ public class VentanaJuego extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(opcionesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tableroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -195,12 +236,16 @@ public class VentanaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_JugarBotonActionPerformed
 
     private void JugarBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JugarBotonMouseClicked
-        manejador.pintarTablero();
+        int x = Integer.parseInt(filasTextF.getText());
+        int y = Integer.parseInt(colTextF.getText());
+        manejador.pintarTablero(x,y);
 
     }//GEN-LAST:event_JugarBotonMouseClicked
 
     private void borrarBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrarBotonMouseClicked
-        manejador.borrarTablero();
+        tableroPanel.removeAll();
+        tableroPanel.repaint();
+//manejador.borrarTablero();
         JugarBoton.setEnabled(true);
         colTextF.setEnabled(true);
         filasTextF.setEnabled(true);
@@ -211,12 +256,23 @@ public class VentanaJuego extends javax.swing.JFrame {
         filasTextF.requestFocus();
     }//GEN-LAST:event_borrarBotonMouseClicked
 
+    private void botonDadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonDadoMouseClicked
+        int random = Dado.tirarDado(1);
+        botonDado.setText(String.valueOf(random));
+    }//GEN-LAST:event_botonDadoMouseClicked
+
+    private void botonDadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonDadoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JugarBoton;
     private javax.swing.JButton borrarBoton;
+    private javax.swing.JButton botonDado;
     private javax.swing.JTextField colTextF;
     private javax.swing.JTextField filasTextF;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel opcionesPanel;
     private javax.swing.JPanel tableroPanel;
     // End of variables declaration//GEN-END:variables

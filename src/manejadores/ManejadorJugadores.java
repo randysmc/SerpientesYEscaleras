@@ -28,15 +28,15 @@ public class ManejadorJugadores {
         //int x = Integer.parseInt(ventanaJuego.getFilasTextF().getText());
     }
 
-    public void agregarJugador() {
-        String nombre = String.valueOf(ventanaPrincipal.getIngNomTextF().getText());
-        String apellido = String.valueOf(ventanaPrincipal.getIngApeTexF().getText());
+    public void agregarJugador(String nombre, String apellido) {
+        //String nombre = String.valueOf(ventanaPrincipal.getIngNomTextF().getText());
+        //String apellido = String.valueOf(ventanaPrincipal.getIngApeTexF().getText());
         Persona persona = new Persona(nombre, apellido);
         listaPersonas.add(persona);
-        mostrar();
+        mostrar(nombre, apellido);
     }
 
-    public void mostrar() {
+    public void mostrar(String nombre, String apellido) {
         String matriz[][] = new String[listaPersonas.size()][3];
 
         for (int i = 0; i < listaPersonas.size(); i++) {

@@ -33,9 +33,9 @@ public class ManejadorTablero {
 
     
     
-        public void pintarTablero() {
-        int x = Integer.parseInt(ventanaJuego.getFilasTextF().getText());
-        int y = Integer.parseInt(ventanaJuego.getColTextF().getText());
+        public void pintarTablero(int x, int y) {
+        //int x = Integer.parseInt(ventanaJuego.getFilasTextF().getText());
+        //int y = Integer.parseInt(ventanaJuego.getColTextF().getText());
         String nombre = "";
         this.tablero = new Cuadro[x][y];
         //Greed Layout para botones
@@ -63,7 +63,8 @@ public class ManejadorTablero {
         this.ventanaJuego.setVisible(true);
     }
 
-    public void borrarTablero() {
+    public void borrarTablero(int x, int y) {
+        
         for (int i = 0; i < Integer.parseInt(ventanaJuego.getFilasTextF().getText()); i++) {
             for (int j = 0; j < Integer.parseInt(ventanaJuego.getColTextF().getText()); j++) {
                 tablero[i][j] = null;
@@ -71,6 +72,10 @@ public class ManejadorTablero {
             ventanaJuego.getTableroPanel().removeAll();
         }
         ventanaJuego.getTableroPanel().repaint();
+    }
+    
+    public void modificarTablero(){
+        
     }
     
     
