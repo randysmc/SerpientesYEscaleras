@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package manejadores;
+package enums;
 
 /**
  *
  * @author randysmc
  */
-public class ManejadorJuego {
-    
+public enum EstadoCasilla {
+    INICIO, RETROCEDE, TIRAR_DADOS, AVANZA, PIERDE_TURNO, BAJADA, SUBIDA, FIN, NORMAL
 }

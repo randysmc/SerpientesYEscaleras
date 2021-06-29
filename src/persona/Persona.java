@@ -1,7 +1,7 @@
 
 package persona;
 
-import tablero.Ficha;
+
 
 
 public class Persona {
@@ -13,7 +13,7 @@ public class Persona {
     private int partidasGanadas=0;
     private int partidasPerdidas=0;
     private static int aumentarId;
-    private Ficha ficha;
+
 
     public Persona(String nombre, String apellido) {
         this.id =Persona.aumentarId();

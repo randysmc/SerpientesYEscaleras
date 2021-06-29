@@ -1,35 +1,86 @@
-
 package ventanas;
 
-import enums.TipoCasilla;
+import enums.EstadoCasilla;
+import java.awt.Color;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Window;
 import java.util.Vector;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.WindowConstants;
-import manejadores.ManejadorTablero;
-import tablero.Tablero;
+import manejadores.Manejador;
+import tablero.Cuadro;
+
+;
 
 public class VentanaJuego extends javax.swing.JFrame {
-    
-    private Vector listaJugadores = new Vector();
-    ManejadorTablero manejadorTablero;
-    private Tablero tablero;
 
-  
+    private Vector listaJugadores = new Vector();
+    Cuadro[][] tablero;
+    Manejador manejador;
+
     public VentanaJuego() {
         initComponents();
+        manejador = new Manejador(this, tablero, tableroPanel);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         //iniciarTablero(10,4);
-        
-        
-        
+
     }
-    
-    public void iniciarTablero(int cantX, int cantY, int cantJugadores){
+
+    public JButton getJugarBoton() {
+        return JugarBoton;
+    }
+
+    public void setJugarBoton(JButton JugarBoton) {
+        this.JugarBoton = JugarBoton;
+    }
+
+    public JButton getBorrarBoton() {
+        return borrarBoton;
+    }
+
+    public void setBorrarBoton(JButton borrarBoton) {
+        this.borrarBoton = borrarBoton;
+    }
+
+    public JTextField getColTextF() {
+        return colTextF;
+    }
+
+    public void setColTextF(JTextField colTextF) {
+        this.colTextF = colTextF;
+    }
+
+    public JTextField getFilasTextF() {
+        return filasTextF;
+    }
+
+    public void setFilasTextF(JTextField filasTextF) {
+        this.filasTextF = filasTextF;
+    }
+
+    public JPanel getOpcionesPanel() {
+        return opcionesPanel;
+    }
+
+    public void setOpcionesPanel(JPanel opcionesPanel) {
+        this.opcionesPanel = opcionesPanel;
+    }
+
+    public JPanel getTableroPanel() {
+        return tableroPanel;
+    }
+
+    public void setTableroPanel(JPanel tableroPanel) {
+        this.tableroPanel = tableroPanel;
+    }
+
+    /*public void iniciarTablero(int cantX, int cantY, int cantJugadores){
         this.tableroPanel.setLayout(new GridLayout(cantX, cantY));
         asignarDatos(cantX, cantY, cantJugadores);
         
@@ -39,8 +90,7 @@ public class VentanaJuego extends javax.swing.JFrame {
         this.tablero = new Tablero(cantX, cantY, cantJugadores);
         manejadorTablero = new ManejadorTablero(tableroPanel, tablero.getCasilla(), cantX, cantY);
 
-    }
-    
+    }*/
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -82,14 +132,14 @@ public class VentanaJuego extends javax.swing.JFrame {
         opcionesPanelLayout.setHorizontalGroup(
             opcionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(opcionesPanelLayout.createSequentialGroup()
-                .addComponent(filasTextF, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(colTextF, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(filasTextF, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(colTextF, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(JugarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(borrarBoton)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
         opcionesPanelLayout.setVerticalGroup(
             opcionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +183,7 @@ public class VentanaJuego extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(opcionesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tableroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -145,23 +195,21 @@ public class VentanaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_JugarBotonActionPerformed
 
     private void JugarBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JugarBotonMouseClicked
-        int x = Integer.parseInt(filasTextF.getText());
-        int y = Integer.parseInt(colTextF.getText());
-        System.out.println("x:" +x+ " y " +y);
-        iniciarTablero(y, x,4);
-        this.setVisible(true);
-        filasTextF.setText("");
-        colTextF.setText("");
-        //tableroPanel.removeAll();
-        //tableroPanel.repaint();
+        manejador.pintarTablero();
+
     }//GEN-LAST:event_JugarBotonMouseClicked
 
     private void borrarBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrarBotonMouseClicked
-        tableroPanel.removeAll();
-        tableroPanel.repaint();
-    }//GEN-LAST:event_borrarBotonMouseClicked
+        manejador.borrarTablero();
+        JugarBoton.setEnabled(true);
+        colTextF.setEnabled(true);
+        filasTextF.setEnabled(true);
+        colTextF.setText("");
+        filasTextF.setText("");
 
-    
+        colTextF.requestFocus();
+        filasTextF.requestFocus();
+    }//GEN-LAST:event_borrarBotonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
