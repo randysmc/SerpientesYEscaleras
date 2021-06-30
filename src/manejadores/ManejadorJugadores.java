@@ -8,6 +8,7 @@ package manejadores;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import persona.Persona;
+import ventanas.VentanaJuego;
 import ventanas.VentanaPrincipal;
 
 /**
@@ -20,6 +21,7 @@ public class ManejadorJugadores {
     JTable jugadoresTabla;
     Persona persona;
     ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
+    VentanaJuego ventanaJuego;
 
     public ManejadorJugadores(VentanaPrincipal ventanaPrincipal, JTable jugadoresTabla, Persona persona) {
         this.ventanaPrincipal = ventanaPrincipal;
@@ -53,5 +55,16 @@ public class ManejadorJugadores {
                 }
         ));
     }
+    
+    public void mostrarVentanaJuego(){
+        /*
+        ventanaJuego.setJugador1Label(""+listaPersonas.get(0).toString());
+        ventanaJuego.setJugador1Label(listaPersonas.get(0));*/
+        System.out.println(listaPersonas.get(0));
+        //ventanaJuego.setJugador2Label1("hola");
+        
+        
+        
+    }   
 
 }

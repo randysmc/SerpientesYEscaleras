@@ -270,6 +270,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void jugarBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jugarBotonMouseClicked
         ventanaJuego = new VentanaJuego();
         
+        
+        
     }//GEN-LAST:event_jugarBotonMouseClicked
 
     private void agregarJugadorBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarJugadorBotonMouseClicked

@@ -1,5 +1,6 @@
 package ventanas;
 
+import controladorArchivos.GenerarObjetos;
 import dado.Dado;
 import enums.EstadoCasilla;
 import java.awt.Color;
@@ -8,6 +9,7 @@ import java.awt.GridLayout;
 import java.awt.Window;
 import java.util.Vector;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
@@ -72,6 +74,8 @@ public class VentanaJuego extends javax.swing.JFrame {
     public void setOpcionesPanel(JPanel opcionesPanel) {
         this.opcionesPanel = opcionesPanel;
     }
+    
+    
 
     public JPanel getTableroPanel() {
         return tableroPanel;
@@ -81,17 +85,47 @@ public class VentanaJuego extends javax.swing.JFrame {
         this.tableroPanel = tableroPanel;
     }
 
-    /*public void iniciarTablero(int cantX, int cantY, int cantJugadores){
-        this.tableroPanel.setLayout(new GridLayout(cantX, cantY));
-        asignarDatos(cantX, cantY, cantJugadores);
-        
+    public JButton getBotonDado() {
+        return botonDado;
     }
-    
-    public void asignarDatos(int cantX, int cantY, int cantJugadores){
-        this.tablero = new Tablero(cantX, cantY, cantJugadores);
-        manejadorTablero = new ManejadorTablero(tableroPanel, tablero.getCasilla(), cantX, cantY);
 
-    }*/
+    public void setBotonDado(JButton botonDado) {
+        this.botonDado = botonDado;
+    }
+
+    public JPanel getJugador1Label() {
+        return jugador1Label;
+    }
+
+    public void setJugador1Label(JPanel jugador1Label) {
+        this.jugador1Label = jugador1Label;
+    }
+
+    public JLabel getJugador2Label1() {
+        return jugador2Label1;
+    }
+
+    public void setJugador2Label1(JLabel jugador2Label1) {
+        this.jugador2Label1 = jugador2Label1;
+    }
+
+    public JLabel getJugador3Label() {
+        return jugador3Label;
+    }
+
+    public void setJugador3Label(JLabel jugador3Label) {
+        this.jugador3Label = jugador3Label;
+    }
+
+    public JLabel getJugador4Label() {
+        return jugador4Label;
+    }
+
+    public void setJugador4Label(JLabel jugador4Label) {
+        this.jugador4Label = jugador4Label;
+    }
+
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -102,8 +136,12 @@ public class VentanaJuego extends javax.swing.JFrame {
         colTextF = new javax.swing.JTextField();
         borrarBoton = new javax.swing.JButton();
         tableroPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        panelJugadores = new javax.swing.JPanel();
         botonDado = new javax.swing.JButton();
+        jugador1Label = new javax.swing.JPanel();
+        jugador4Label = new javax.swing.JLabel();
+        jugador2Label1 = new javax.swing.JLabel();
+        jugador3Label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -186,19 +224,55 @@ public class VentanaJuego extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(botonDado, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jugador1Label.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jugador1Label.setForeground(new java.awt.Color(0, 102, 102));
+
+        javax.swing.GroupLayout jugador1LabelLayout = new javax.swing.GroupLayout(jugador1Label);
+        jugador1Label.setLayout(jugador1LabelLayout);
+        jugador1LabelLayout.setHorizontalGroup(
+            jugador1LabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jugador1LabelLayout.setVerticalGroup(
+            jugador1LabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        jugador4Label.setForeground(new java.awt.Color(0, 51, 51));
+        jugador4Label.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jugador2Label1.setForeground(new java.awt.Color(0, 51, 51));
+        jugador2Label1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jugador3Label.setForeground(new java.awt.Color(0, 51, 51));
+        jugador3Label.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout panelJugadoresLayout = new javax.swing.GroupLayout(panelJugadores);
+        panelJugadores.setLayout(panelJugadoresLayout);
+        panelJugadoresLayout.setHorizontalGroup(
+            panelJugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelJugadoresLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelJugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jugador3Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jugador4Label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                    .addComponent(jugador1Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonDado, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jugador2Label1, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        panelJugadoresLayout.setVerticalGroup(
+            panelJugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelJugadoresLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jugador1Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jugador2Label1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jugador3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jugador4Label, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonDado, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
@@ -214,7 +288,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(tableroPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(panelJugadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -224,7 +298,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tableroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelJugadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -236,6 +310,7 @@ public class VentanaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_JugarBotonActionPerformed
 
     private void JugarBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JugarBotonMouseClicked
+
         int x = Integer.parseInt(filasTextF.getText());
         int y = Integer.parseInt(colTextF.getText());
         manejadorTablero.Jugar(x, y);
@@ -272,8 +347,12 @@ public class VentanaJuego extends javax.swing.JFrame {
     private javax.swing.JButton botonDado;
     private javax.swing.JTextField colTextF;
     private javax.swing.JTextField filasTextF;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jugador1Label;
+    private javax.swing.JLabel jugador2Label1;
+    private javax.swing.JLabel jugador3Label;
+    private javax.swing.JLabel jugador4Label;
     private javax.swing.JPanel opcionesPanel;
+    private javax.swing.JPanel panelJugadores;
     private javax.swing.JPanel tableroPanel;
     // End of variables declaration//GEN-END:variables
 }

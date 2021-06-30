@@ -6,6 +6,7 @@
 package manejadores;
 
 /**
+ * se van a maneajr
  *
  * @author randysmc
  */
@@ -36,18 +37,11 @@ public class ManejadorTablero {
 
     public void Jugar(int x, int y) {
         iniciarTablero(x, y);
-        iniciarFicha(tablero, 0, 0, 2);
+        inicioFinTablero(x, y);
+        //iniciarFicha(tablero, 0, 0, 2);
 
-        String nombreC = nombreTableroCuadro(tablero, x, y);
+        //String nombreC = nombreTableroCuadro(tablero, x, y);
         //String nombreF = nombreTableroFicha(tablero, x, y);
-        for (int i = 0; i < x; i++) {
-            for (int j = 0; j < y; j++) {
-                this.tablero[i][j].setText(nombreC + "" /*nombreF*/);
-                
-            }
-            
-        }
-        
         pintarTablero(x, y);
         tableroPanel.repaint();
 
