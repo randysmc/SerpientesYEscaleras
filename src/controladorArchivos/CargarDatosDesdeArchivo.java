@@ -21,12 +21,12 @@ import controladorArchivos.ManejarArchivo;
  */
 public class CargarDatosDesdeArchivo {
     
-    //static String path = "src/main/resources/conErrores.txt";
+    static String path = "src/sinErrores.txt";
     GenerarObjetos generarObjetos = new GenerarObjetos();
 
     /**
      * Carga los datos de un archivo .txt
-     * @param path ruta del archivo del cualse vana a cargar los datos.
+     * @param path ruta del archivo del cual se van a leer los datos
      */
     public void cargarDatos(String path) {
         ArrayList<String> datos = ManejarArchivo.leerArchivo(path);
