@@ -39,9 +39,9 @@ public class CargarDatosDesdeArchivo {
             if (datos.get(i).startsWith("tablero")) {
                 generarObjetos.generarTablero(parametros, indice);
             } else if (datos.get(i).startsWith("retrocede")) {
-                generarObjetos.generarCasillaRetrocede(parametros, indice);
+                generarObjetos.generarCasillaRetroceso(parametros, indice);
             } else if (datos.get(i).startsWith("tiradados")) {
-                generarObjetos.generarCasillaTiraDados(parametros, indice);
+                generarObjetos.generarCasillaTirarDado(parametros, indice);
             } else if (datos.get(i).startsWith("subida")) {
                 generarObjetos.generarCasillaSubida(parametros, indice);
             } else if (datos.get(i).startsWith("avanza")) {
