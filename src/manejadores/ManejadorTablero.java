@@ -52,7 +52,8 @@ public class ManejadorTablero {
         casillaTirarDados(tablero);
         //iniciarFicha(tablero, 0, 0, 2);
 
-        String nombreC = nombreTableroCuadro(tablero, x, y);
+        nombreTableroCuadro(tablero, x, y);
+        
         //String nombreF = nombreTableroFicha(tablero, x, y);
         pintarTablero(x, y);
         tableroPanel.repaint();
@@ -62,8 +63,8 @@ public class ManejadorTablero {
     public void inicioFinTablero(int x, int y) {
         this.tablero[0][0].setEstadoCasilla(EstadoCasilla.INICIO);
         this.tablero[0][0].setBackground(Color.LIGHT_GRAY);
-        this.tablero[x - 1][y - 1].setEstadoCasilla(EstadoCasilla.FIN);
-        this.tablero[x - 1][y - 1].setBackground(Color.DARK_GRAY);
+        this.tablero[x-1][y - 1].setEstadoCasilla(EstadoCasilla.FIN);
+        this.tablero[x-1][y - 1].setBackground(Color.DARK_GRAY);
     }
 
     public void iniciarTablero(int x, int y) {
@@ -78,10 +79,10 @@ public class ManejadorTablero {
 
                 if (i == 0 && j == 0) {
                     //this.tablero[i][j].setFicha(new Ficha('X', TipoFicha.JUGADOR1));
-                    this.tablero[i][j] = new Cuadro(i, j, ventanaJuego.getTableroPanel(), this.ventanaJuego, EstadoCasilla.INICIO, "");
+                    this.tablero[i][j] = new Cuadro(i, j, ventanaJuego.getTableroPanel(), this.ventanaJuego, EstadoCasilla.INICIO, "Inicio");
                     //this.tablero[i][j].setBackground(Color.red);
-                } else if (i == (x - 1) && j == (y - 1)) {
-                    this.tablero[i][j] = new Cuadro(i, j, ventanaJuego.getTableroPanel(), this.ventanaJuego, EstadoCasilla.FIN, "");
+                } else if (i == (x) && j == (y)) {
+                    this.tablero[i][j] = new Cuadro(i, j, ventanaJuego.getTableroPanel(), this.ventanaJuego, EstadoCasilla.FIN, "Fin");
                     //this.tablero[i][j].setBackground(Color.BLACK);
                 } else {
                     this.tablero[i][j] = new Cuadro(i, j, ventanaJuego.getTableroPanel(), this.ventanaJuego, EstadoCasilla.NORMAL, "");
@@ -165,6 +166,12 @@ public class ManejadorTablero {
 
     public void casillaRetroceso(Cuadro[][] tablero) {
         this.tablero[0][1].setEstadoCasilla(EstadoCasilla.RETROCEDE);
+        this.tablero[0][6].setEstadoCasilla(EstadoCasilla.RETROCEDE);
+        this.tablero[1][4].setEstadoCasilla(EstadoCasilla.RETROCEDE);
+        this.tablero[1][6].setEstadoCasilla(EstadoCasilla.RETROCEDE);
+        this.tablero[3][6].setEstadoCasilla(EstadoCasilla.RETROCEDE);
+        this.tablero[4][1].setEstadoCasilla(EstadoCasilla.RETROCEDE);
+        this.tablero[5][3].setEstadoCasilla(EstadoCasilla.RETROCEDE);
         //this.tablero[0][1].setBackground(Color.ORANGE);
 
     }
@@ -172,73 +179,102 @@ public class ManejadorTablero {
     public void casillaTirarDados(Cuadro[][] tablero) {
         this.tablero[0][3].setEstadoCasilla(EstadoCasilla.TIRAR_DADOS);
         this.tablero[2][1].setEstadoCasilla(EstadoCasilla.TIRAR_DADOS);
+        this.tablero[2][6].setEstadoCasilla(EstadoCasilla.TIRAR_DADOS);
+        this.tablero[3][0].setEstadoCasilla(EstadoCasilla.TIRAR_DADOS);
+        this.tablero[3][3].setEstadoCasilla(EstadoCasilla.TIRAR_DADOS);
+        this.tablero[4][5].setEstadoCasilla(EstadoCasilla.TIRAR_DADOS);
+        this.tablero[5][1].setEstadoCasilla(EstadoCasilla.TIRAR_DADOS);
         //this.tablero[2][1].setBackground(Color.RED);
 
     }
 
     public void casillaSubida(Cuadro[][] tablero) {
         this.tablero[0][4].setEstadoCasilla(EstadoCasilla.SUBIDA);
-        //this.tablero[0][4].setBackground(Color.YELLOW);
         this.tablero[2][6].setEstadoCasilla(EstadoCasilla.SUBIDA);
-        //this.tablero[2][6].setBackground(Color.YELLOW);
-
+        this.tablero[4][0].setEstadoCasilla(EstadoCasilla.SUBIDA);
+        this.tablero[5][5].setEstadoCasilla(EstadoCasilla.SUBIDA);
+        //this.tablero[5][7].setEstadoCasilla(EstadoCasilla.SUBIDA);
+        //this.tablero[0][4].setEstadoCasilla(EstadoCasilla.SUBIDA);
     }
 
     public void casillaAvanza(Cuadro[][] tablero) {
         this.tablero[0][7].setEstadoCasilla(EstadoCasilla.AVANZA);
-        this.tablero[0][7].setBackground(Color.ORANGE);
+        this.tablero[1][0].setEstadoCasilla(EstadoCasilla.AVANZA);
+        this.tablero[1][1].setEstadoCasilla(EstadoCasilla.AVANZA);
+        this.tablero[2][7].setEstadoCasilla(EstadoCasilla.AVANZA);
+        this.tablero[3][2].setEstadoCasilla(EstadoCasilla.AVANZA);
+        this.tablero[3][5].setEstadoCasilla(EstadoCasilla.AVANZA);
+        this.tablero[4][4].setEstadoCasilla(EstadoCasilla.AVANZA);
+        
 
     }
 
     public void casillaPierdeTurno(Cuadro[][] tablero) {
+        this.tablero[1][3].setEstadoCasilla(EstadoCasilla.PIERDE_TURNO);
+        this.tablero[1][5].setEstadoCasilla(EstadoCasilla.PIERDE_TURNO);
+        this.tablero[2][2].setEstadoCasilla(EstadoCasilla.PIERDE_TURNO);
+        this.tablero[4][3].setEstadoCasilla(EstadoCasilla.PIERDE_TURNO);
         this.tablero[5][0].setEstadoCasilla(EstadoCasilla.PIERDE_TURNO);
-        //this.tablero[5][0].setBackground(Color.BLUE);
 
     }
 
     public void casillaBajada(Cuadro[][] tablero) {
         this.tablero[2][4].setEstadoCasilla(EstadoCasilla.BAJADA);
-        this.tablero[2][4].setBackground(Color.GREEN);
         this.tablero[0][4].setEstadoCasilla(EstadoCasilla.BAJADA);
-        this.tablero[0][4].setBackground(Color.GREEN);
+        
+        this.tablero[4][6].setEstadoCasilla(EstadoCasilla.BAJADA);
+        this.tablero[2][4].setEstadoCasilla(EstadoCasilla.BAJADA);
+        
 
     }
 
-    public String nombreTableroCuadro(Cuadro[][] tablero, int x, int y) {
+    public void nombreTableroCuadro(Cuadro[][] tablero, int x, int y) {
         String nombreC = "hola";
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 if (tablero[i][j].getEstadoCasilla() == EstadoCasilla.INICIO) {           
                     nombreC = "INICIO";
-                    tablero[i][j].setBackground(Color.LIGHT_GRAY);
+                    this.tablero[i][j].setText(nombreC);
+                    this.tablero[i][j].setBackground(Color.LIGHT_GRAY);
                 }
                 if (tablero[i][j].getEstadoCasilla() == EstadoCasilla.AVANZA) {
                     this.tablero[i][j].setText("Av");
                     nombreC = "Av";
+                    tablero[i][j].setText(nombreC);
                 }
                 if (tablero[i][j].getEstadoCasilla() == EstadoCasilla.FIN) {
                     nombreC = "Fin";
+                    this.tablero[i][j].setText(nombreC);
                 }
                 if (tablero[i][j].getEstadoCasilla() == EstadoCasilla.PIERDE_TURNO) {
                     nombreC = "Pierde Turno";
                     this.tablero[i][j].setBackground(Color.BLUE);
+                    this.tablero[i][j].setText(nombreC);
                 }
                 if (tablero[i][j].getEstadoCasilla() == EstadoCasilla.SUBIDA) {
                     nombreC = "Subida";
                     this.tablero[i][j].setBackground(Color.YELLOW);
+                    this.tablero[i][j].setText(nombreC);
                 }
                 if (tablero[i][j].getEstadoCasilla() == EstadoCasilla.BAJADA) {
                     nombreC = "Bajada";
                     this.tablero[i][j].setBackground(Color.GREEN);
+                    this.tablero[i][j].setText(nombreC);
                 }
                 if(tablero[i][j].getEstadoCasilla() == EstadoCasilla.TIRAR_DADOS){
                     nombreC = "Dados";
                     this.tablero[i][j].setBackground(Color.RED);
+                    this.tablero[i][j].setText(nombreC);
+                }
+                if(tablero[i][j].getEstadoCasilla() == EstadoCasilla.RETROCEDE){
+                    nombreC = "Re";
+                    this.tablero[i][j].setBackground(Color.ORANGE);
+                    this.tablero[i][j].setText(nombreC);
                 }
 
             }
         }
-        return nombreC;
+        //return nombreC;
 
     }
 
